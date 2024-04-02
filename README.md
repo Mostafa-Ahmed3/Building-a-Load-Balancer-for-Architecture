@@ -11,7 +11,7 @@
 </ul>
 <p>3. Configure Security Groups</p>
 <ul style="list-style-type: disc;">
-    <li>Create 2 Security Groups for your DB, EC2 instance and Application load balancer.</li>
+    <li>Create 3 Security Groups for your DB, EC2 instance and Application load balancer.</li>
     <li>Define rules according to the needs.</li>
 </ul>
 <p>4. Creating EC2 Instance and an AMI for Auto Scaling:</p>
