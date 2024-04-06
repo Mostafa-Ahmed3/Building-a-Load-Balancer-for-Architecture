@@ -1,20 +1,27 @@
-<p><span class="fr-close-ol">1. Creating a VPC (Virtual Private Cloud):</span></p>
+<ol style="list-style-type: decimal;margin-left:-0.25in;">
+    <li>Creating a VPC (Virtual Private Cloud):</li>
+</ol>
 <ul style="list-style-type: disc;">
     <li>Go to the VPC Dashboard in the AWS Management Console.</li>
     <li>Click on &quot;Your VPCs&quot; in the left-hand navigation pane.</li>
     <li>Click on &quot;Create VPC&quot; and configure the VPC with the appropriate IPv4 block (e.g., 10.0.0.0/16) and create four subnets within this VPC (e.g., 10.0.0.0/24 and 10.0.2.0/24 for the public subnets and 10.0.1.0/24 and 10.0.3.0/24 for the private subnets).</li>
 </ul>
-<p>2. Setting Up Internet Gateway and Route Tables:</p>
+<p>2. Configure a NAT Gateway</p>
+<ul style="list-style-type: disc;margin-left:0.25in;">
+    <li>Go to the &quot;NAT Gateways&quot; section of the VPC dashboard and create a NAT gateway in one of the public subnets.</li>
+    <li>Ensure that the private subnets will route their traffic through the NAT gateway to access the internet.</li>
+</ul>
+<p>3. Setting Up Internet Gateway and Route Tables:</p>
 <ul style="margin-bottom:0in;margin-top:0in;" type="disc">
     <li style='margin:0in;font-size:12.0pt;font-family:"Times New Roman",serif;'>Create an internet gateway and attach it to your VPC to enable internet access for resources within the VPC.</li>
     <li style='margin:0in;font-size:12.0pt;font-family:"Times New Roman",serif;'>Create route tables and associate them with the subnets. Ensure that the public subnet has a route to the internet gateway to allow outbound internet access for resources in that subnet.</li>
 </ul>
-<p>3. Configure Security Groups</p>
+<p>4. Configure Security Groups</p>
 <ul style="list-style-type: disc;">
-    <li>Create 3 Security Groups for your DB, EC2 instance and Application load balancer.</li>
+    <li>Create 2 Security Groups for your DB, EC2 instance and Application load balancer.</li>
     <li>Define rules according to the needs.</li>
 </ul>
-<p>4. Creating EC2 Instance and an AMI for Auto Scaling:</p>
+<p>5. Creating EC2 Instance and an AMI for Auto Scaling:</p>
 <ul style="margin-bottom:0in;margin-top:0in;" type="disc">
     <li style='margin:0in;font-size:12.0pt;font-family:"Times New Roman",serif;'>Launch EC2 instance with the name Web Server 1.</li>
     <li style='margin:0in;font-size:12.0pt;font-family:"Times New Roman",serif;'>Go to the EC2 Dashboard and click &quot;Launch Instance.&quot;</li>
@@ -32,7 +39,7 @@
     <li>Use &quot;Launch Template&quot; to define the specifications for the instances.</li>
     <li>In &quot;Auto Scaling Groups&quot;, create a new group, select your launch template/configuration, set the desired, minimum, and maximum number of instances, and select the subnets in multiple AZs.</li>
 </ul>
-<p>5. Creating RDS DB</p>
+<p>6. Creating RDS DB</p>
 <ul style="list-style-type: disc;">
     <li>Navigate to RDS Dashboard.</li>
     <li>Choose to create a new database and select the engine.</li>
